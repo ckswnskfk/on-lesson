@@ -1,6 +1,6 @@
 "use client";
 
-import { createClient } from "@/utils/supabase/client";
+import { createClient } from "@/supabase/client";
 import { Button } from "./ui/button";
 
 export default function KakaoButton() {
