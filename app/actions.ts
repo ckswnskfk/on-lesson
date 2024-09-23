@@ -5,15 +5,36 @@ import { redirect } from "next/navigation";
 
 import { encodedRedirect } from "@/lib/utils";
 import { createClient } from "@/supabase/server";
+import { SignUpForm } from "@/lib/schemas";
 
 export const signUpAction = async (formData: FormData) => {
-	const email = formData.get("email")?.toString();
-	const password = formData.get("password")?.toString();
-	const supabase = createClient();
-	const origin = headers().get("origin");
+	const validatedFields = SignUpForm.safeParse({
+		email: formData.get("email")?.toString(),
+		password: formData.get("password")?.toString(),
+		confirmPassword: formData.get("confirmPassword")?.toString(),
+		nickname: formData.get("nickname")?.toString(),
+		role: formData.get("role")?.toString(),
+	});
 
-	if (!email || !password) {
-		return { error: "이메일과 비밀번호는 필수 입력값입니다." };
+	if (!validatedFields.success) {
+		return encodedRedirect(
+			"error",
+			"/sign-up",
+			validatedFields.error.errors.flatMap((error) => error.message).join("\n"),
+		);
+	}
+
+	const origin = headers().get("origin");
+	const supabase = createClient();
+
+	const { email, password, nickname, role } = validatedFields.data;
+	const { data } = await supabase
+		.from("profiles")
+		.select("id")
+		.eq("nickname", nickname);
+
+	if (data?.length && data.length > 0) {
+		return encodedRedirect("error", "/sign-up", "이미 존재하는 닉네임입니다.");
 	}
 
 	const {
@@ -24,6 +45,10 @@ export const signUpAction = async (formData: FormData) => {
 		password,
 		options: {
 			emailRedirectTo: `${origin}/auth/callback`,
+			data: {
+				user_name: nickname,
+				role: role,
+			},
 		},
 	});
 
