@@ -1,15 +1,10 @@
 import Link from "next/link";
 
-import { signUpAction } from "@/app/actions";
-import { FormMessage, Message } from "@/components/form-message";
-import OAuthButtons from "@/components/oauth-buttons";
-import { SubmitButton } from "@/components/submit-button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Role } from "@/lib/definitions";
 import StudentSignUpForm from "@/components/auth/student-sign-up-form";
 import TeacherSignUpForm from "@/components/auth/teacher-sign-up-form";
+import { FormMessage, Message } from "@/components/form-message";
+import OAuthButtons from "@/components/oauth-buttons";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Signup({ searchParams }: { searchParams: Message }) {
 	if ("message" in searchParams) {
