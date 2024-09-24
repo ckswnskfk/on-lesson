@@ -3,9 +3,9 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { SignUpForm } from "@/lib/schemas";
 import { encodedRedirect } from "@/lib/utils";
 import { createClient } from "@/supabase/server";
-import { SignUpForm } from "@/lib/schemas";
 
 export const signUpAction = async (formData: FormData) => {
 	const validatedFields = SignUpForm.safeParse({
@@ -97,7 +97,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
 	}
 
 	const { error } = await supabase.auth.resetPasswordForEmail(email, {
-		redirectTo: `${origin}/auth/callback?redirect_to=/protected/reset-password`,
+		redirectTo: `${origin}/auth/callback?redirect_to=/reset-password`,
 	});
 
 	if (error) {
@@ -129,17 +129,13 @@ export const resetPasswordAction = async (formData: FormData) => {
 	if (!password || !confirmPassword) {
 		encodedRedirect(
 			"error",
-			"/protected/reset-password",
+			"/reset-password",
 			"비밀번호와 비밀번호 확인은 필수 입력값입니다.",
 		);
 	}
 
 	if (password !== confirmPassword) {
-		encodedRedirect(
-			"error",
-			"/protected/reset-password",
-			"비밀번호를 확인하세요.",
-		);
+		encodedRedirect("error", "/reset-password", "비밀번호를 확인하세요.");
 	}
 
 	const { error } = await supabase.auth.updateUser({
@@ -149,7 +145,7 @@ export const resetPasswordAction = async (formData: FormData) => {
 	if (error) {
 		encodedRedirect(
 			"error",
-			"/protected/reset-password",
+			"/reset-password",
 			"비밀번호 재설정에 실패했습니다.",
 		);
 	}
