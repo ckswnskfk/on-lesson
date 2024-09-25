@@ -3,7 +3,7 @@ import Link from "next/link";
 import { signOutAction } from "@/app/actions";
 import { createClient } from "@/supabase/server";
 
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export default async function AuthButton() {
 	const supabase = createClient();

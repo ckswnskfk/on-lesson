@@ -1,11 +1,11 @@
 import "./globals.css";
 
 import { GeistSans } from "geist/font/sans";
-import Link from "next/link";
 import { ThemeProvider } from "next-themes";
+import Link from "next/link";
 
-import { EnvVarWarning } from "@/components/env-var-warning";
-import HeaderAuth from "@/components/header-auth";
+import { EnvVarWarning } from "@/components/layout/env-var-warning";
+import HeaderAuth from "@/components/layout/header-auth";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/supabase/check-env-vars";
 

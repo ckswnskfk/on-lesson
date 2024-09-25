@@ -1,4 +1,4 @@
-import KakaoButton from "../kakao-button";
+import KakaoButton from "./kakao-button";
 
 export default function OAuthButtons() {
 	return (
