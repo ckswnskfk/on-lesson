@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { signInAction } from "@/app/actions";
+import OAuthButtons from "@/components/auth/oauth-buttons";
 import { FormMessage, Message } from "@/components/form-message";
-import OAuthButtons from "@/components/oauth-buttons";
 import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
