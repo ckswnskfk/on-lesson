@@ -1,10 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { createClient } from "@/supabase/client";
+import { useSupabaseBrowser } from "@/supabase/client";
 
 export default function KakaoButton() {
-	const supabase = createClient();
+	const supabase = useSupabaseBrowser();
 
 	const handleSignInWithKakao = async () => {
 		await supabase.auth.signInWithOAuth({
