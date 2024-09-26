@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 import { SignUpForm } from "@/lib/schemas";
 import { encodedRedirect } from "@/lib/utils";
-import { createClient } from "@/supabase/server";
+import { useSupabaseServer } from "@/supabase/server";
 
 export const signUpAction = async (formData: FormData) => {
 	const validatedFields = SignUpForm.safeParse({
@@ -25,7 +25,7 @@ export const signUpAction = async (formData: FormData) => {
 	}
 
 	const origin = headers().get("origin");
-	const supabase = createClient();
+	const supabase = useSupabaseServer();
 
 	const { email, password, nickname, role } = validatedFields.data;
 	const { data } = await supabase
@@ -72,7 +72,7 @@ export const signUpAction = async (formData: FormData) => {
 export const signInAction = async (formData: FormData) => {
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
-	const supabase = createClient();
+	const supabase = useSupabaseServer();
 
 	const { error } = await supabase.auth.signInWithPassword({
 		email,
@@ -88,7 +88,7 @@ export const signInAction = async (formData: FormData) => {
 
 export const forgotPasswordAction = async (formData: FormData) => {
 	const email = formData.get("email")?.toString();
-	const supabase = createClient();
+	const supabase = useSupabaseServer();
 	const origin = headers().get("origin");
 	const callbackUrl = formData.get("callbackUrl")?.toString();
 
@@ -121,7 +121,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
 };
 
 export const resetPasswordAction = async (formData: FormData) => {
-	const supabase = createClient();
+	const supabase = useSupabaseServer();
 
 	const password = formData.get("password") as string;
 	const confirmPassword = formData.get("confirmPassword") as string;
@@ -154,7 +154,7 @@ export const resetPasswordAction = async (formData: FormData) => {
 };
 
 export const signOutAction = async () => {
-	const supabase = createClient();
+	const supabase = useSupabaseServer();
 	await supabase.auth.signOut();
 	return redirect("/sign-in");
 };
