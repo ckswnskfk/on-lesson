@@ -3,9 +3,9 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 
+import MainFooter from "@/components/layout/footer/main-footer";
 import MainHeader from "@/components/layout/header/main-header";
 import ReactQueryClientProvider from "@/components/react-query-client-provider";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 
 const defaultUrl = process.env.VERCEL_URL
 	? `https://${process.env.VERCEL_URL}`
@@ -33,10 +33,8 @@ export default function RootLayout({
 						disableTransitionOnChange
 					>
 						<MainHeader />
-						<div className="flex max-w-5xl flex-col gap-20 p-5">{children}</div>
-						<footer className="mx-auto flex w-full items-center justify-center gap-8 border-t py-16 text-center text-xs">
-							<ThemeSwitcher />
-						</footer>
+						<div className="max-w-5xl p-5 mx-auto">{children}</div>
+						<MainFooter />
 					</ThemeProvider>
 				</body>
 			</html>
