@@ -3,7 +3,5 @@ export default async function Layout({
 }: {
 	children: React.ReactNode;
 }) {
-	return (
-		<div className="flex max-w-7xl flex-col items-start gap-6">{children}</div>
-	);
+	return <main className="mx-auto mt-32 w-[350px]">{children}</main>;
 }

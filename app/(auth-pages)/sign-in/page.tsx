@@ -10,17 +10,14 @@ import { Label } from "@/components/ui/label";
 export default function Login({ searchParams }: { searchParams: Message }) {
 	return (
 		<>
-			<form className="flex min-w-64 flex-1 flex-col">
-				<h1 className="text-2xl font-medium">로그인</h1>
-				<p className="text-sm text-foreground">
-					아직 회원이 아니십니까?{" "}
-					<Link
-						className="font-medium text-foreground underline"
-						href="/sign-up"
-					>
-						회원 가입
-					</Link>
-				</p>
+			<h1 className="text-2xl font-medium">로그인</h1>
+			<p className="text-sm text-foreground">
+				아직 회원이 아니십니까?{" "}
+				<Link className="font-medium text-foreground underline" href="/sign-up">
+					회원 가입
+				</Link>
+			</p>
+			<form className="flex flex-1 flex-col">
 				<div className="mt-8 flex flex-col gap-2 [&>input]:mb-3">
 					<Label htmlFor="email">이메일</Label>
 					<Input name="email" placeholder="you@example.com" required />

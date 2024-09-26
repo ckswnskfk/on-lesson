@@ -1,15 +1,13 @@
-import { ThemeSwitcher } from "@/components/theme-switcher";
-
 export default function MainFooter() {
 	return (
-		<footer className="mx-auto flex flex-col w-full items-center justify-center gap-8 border-t py-16 text-center text-xs">
-			<ThemeSwitcher />
-			<div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+		<footer className="hidden flex-col items-center justify-center gap-3 border-t py-4 text-center text-xs md:flex">
+			{/* <ThemeSwitcher /> */}
+			<div className="mx-auto max-w-7xl p-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
 				<div className="flex justify-center space-x-6 md:order-2">
 					<a href="#" className="text-gray-400 hover:text-gray-500">
 						<span className="sr-only">Facebook</span>
 						<svg
-							className="h-6 w-6"
+							className="size-6"
 							fill="currentColor"
 							viewBox="0 0 24 24"
 							aria-hidden="true"
@@ -25,7 +23,7 @@ export default function MainFooter() {
 					<a href="#" className="text-gray-400 hover:text-gray-500">
 						<span className="sr-only">Instagram</span>
 						<svg
-							className="h-6 w-6"
+							className="size-6"
 							fill="currentColor"
 							viewBox="0 0 24 24"
 							aria-hidden="true"
@@ -41,7 +39,7 @@ export default function MainFooter() {
 					<a href="#" className="text-gray-400 hover:text-gray-500">
 						<span className="sr-only">Twitter</span>
 						<svg
-							className="h-6 w-6"
+							className="size-6"
 							fill="currentColor"
 							viewBox="0 0 24 24"
 							aria-hidden="true"
@@ -50,7 +48,7 @@ export default function MainFooter() {
 						</svg>
 					</a>
 				</div>
-				<div className="mt-8 md:mt-0 md:order-1 mr-10">
+				<div className="mr-10 mt-8 md:order-1 md:mt-0">
 					<p className="text-center text-base text-gray-400">
 						&copy; 2024 On-Lesson, Inc. All rights reserved.
 					</p>

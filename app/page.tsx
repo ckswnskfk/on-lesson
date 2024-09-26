@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function LandingPage() {
@@ -16,34 +17,34 @@ export default function LandingPage() {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
 				transition={{ duration: 0.5 }}
-				className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24"
+				className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-24 lg:px-8"
 			>
 				<div className="text-center">
-					<h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+					<h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
 						<span className="block">음악의 세계를 열다</span>
 						<span className="block text-indigo-600">On-Lesson과 함께</span>
 					</h1>
-					<p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+					<p className="mx-auto mt-3 max-w-md text-base text-gray-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
 						물리적 거리의 한계를 넘어, 최고의 선생님과 열정적인 학생들을
 						연결합니다. 언제 어디서나, 당신의 음악 여정을 시작하세요.
 					</p>
-					<div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+					<div className="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
 						<div className="rounded-md shadow">
 							<motion.a
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 								href="#"
-								className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+								className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:px-10 md:py-4 md:text-lg"
 							>
 								무료로 시작하기
 							</motion.a>
 						</div>
-						<div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+						<div className="mt-3 rounded-md shadow sm:ml-3 sm:mt-0">
 							<motion.a
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 								href="#"
-								className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+								className="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-indigo-600 hover:bg-gray-50 md:px-10 md:py-4 md:text-lg"
 							>
 								자세히 알아보기
 							</motion.a>
@@ -52,13 +53,13 @@ export default function LandingPage() {
 				</div>
 			</motion.section>
 
-			<section id="features" className="py-12 bg-white">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<section id="features" className="bg-white py-12">
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
-						<h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+						<h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
 							특징
 						</h2>
-						<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+						<p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
 							더 나은 음악 교육을 위한 솔루션
 						</p>
 						<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
@@ -67,7 +68,7 @@ export default function LandingPage() {
 					</div>
 
 					<div className="mt-10">
-						<dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+						<dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
 							{[
 								{
 									title: "제한 없는 연결",
@@ -75,7 +76,7 @@ export default function LandingPage() {
 										"전국 어디서나 최고의 선생님과 연결될 수 있습니다. 물리적 거리의 한계를 넘어서세요.",
 									icon: (
 										<svg
-											className="h-6 w-6"
+											className="size-6"
 											xmlns="http://www.w3.org/2000/svg"
 											fill="none"
 											viewBox="0 0 24 24"
@@ -96,7 +97,7 @@ export default function LandingPage() {
 										"당신의 일정에 맞춰 레슨을 예약하세요. 24/7 언제든지 가능합니다.",
 									icon: (
 										<svg
-											className="h-6 w-6"
+											className="size-6"
 											xmlns="http://www.w3.org/2000/svg"
 											fill="none"
 											viewBox="0 0 24 24"
@@ -117,7 +118,7 @@ export default function LandingPage() {
 										"개인화된 학습 계획과 진도 관리로 효율적인 학습을 경험하세요.",
 									icon: (
 										<svg
-											className="h-6 w-6"
+											className="size-6"
 											xmlns="http://www.w3.org/2000/svg"
 											fill="none"
 											viewBox="0 0 24 24"
@@ -138,7 +139,7 @@ export default function LandingPage() {
 										"AI 기술을 활용한 레슨 녹음 분석과 요약으로 복습 효율을 극대화합니다.",
 									icon: (
 										<svg
-											className="h-6 w-6"
+											className="size-6"
 											xmlns="http://www.w3.org/2000/svg"
 											fill="none"
 											viewBox="0 0 24 24"
@@ -165,14 +166,14 @@ export default function LandingPage() {
 									className="relative"
 								>
 									<dt>
-										<div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+										<div className="absolute flex size-12 items-center justify-center rounded-md bg-indigo-500 text-white">
 											{feature.icon}
 										</div>
-										<p className="ml-16 text-lg leading-6 font-medium text-gray-900">
+										<p className="ml-16 text-lg font-medium leading-6 text-gray-900">
 											{feature.title}
 										</p>
 									</dt>
-									<dd className="mt-2 ml-16 text-base text-gray-500">
+									<dd className="ml-16 mt-2 text-base text-gray-500">
 										{feature.description}
 									</dd>
 								</motion.div>
@@ -182,19 +183,19 @@ export default function LandingPage() {
 				</div>
 			</section>
 
-			<section id="how-it-works" className="py-12 bg-gray-50">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<section id="how-it-works" className="bg-gray-50 py-12">
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
-						<h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+						<h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
 							이용 방법
 						</h2>
-						<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+						<p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
 							간단한 3단계로 시작하세요
 						</p>
 					</div>
 
 					<div className="mt-10">
-						<div className="flex flex-col md:flex-row justify-center items-center md:space-x-8">
+						<div className="flex flex-col items-center justify-center md:flex-row md:space-x-8">
 							{[
 								{
 									step: 1,
@@ -220,15 +221,15 @@ export default function LandingPage() {
 										y: isVisible ? 0 : 20,
 									}}
 									transition={{ duration: 0.5, delay: index * 0.1 }}
-									className="flex flex-col items-center mb-8 md:mb-0"
+									className="mb-8 flex flex-col items-center md:mb-0"
 								>
-									<div className="flex items-center justify-center h-16 w-16 rounded-md bg-indigo-500 text-white text-2xl font-bold">
+									<div className="flex size-16 items-center justify-center rounded-md bg-indigo-500 text-2xl font-bold text-white">
 										{item.step}
 									</div>
 									<h3 className="mt-4 text-xl font-medium text-gray-900">
 										{item.title}
 									</h3>
-									<p className="mt-2 text-base text-gray-500 text-center">
+									<p className="mt-2 text-center text-base text-gray-500">
 										{item.description}
 									</p>
 								</motion.div>
@@ -238,13 +239,13 @@ export default function LandingPage() {
 				</div>
 			</section>
 
-			<section id="pricing" className="py-12 bg-white">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<section id="pricing" className="bg-white py-12">
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
-						<h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+						<h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
 							가격
 						</h2>
-						<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+						<p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
 							합리적인 가격으로 시작하세요
 						</p>
 						<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
@@ -276,7 +277,7 @@ export default function LandingPage() {
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
 								transition={{ duration: 0.5, delay: index * 0.1 }}
-								className="bg-white shadow-lg rounded-lg overflow-hidden w-full md:w-96"
+								className="w-full overflow-hidden rounded-lg bg-white shadow-lg md:w-96"
 							>
 								<div className="px-6 py-8">
 									<h3 className="text-2xl font-semibold text-gray-900">
@@ -289,9 +290,9 @@ export default function LandingPage() {
 									<ul className="mt-6 space-y-4">
 										{plan.features.map((feature, featureIndex) => (
 											<li key={featureIndex} className="flex items-start">
-												<div className="flex-shrink-0">
+												<div className="shrink-0">
 													<svg
-														className="h-6 w-6 text-green-500"
+														className="size-6 text-green-500"
 														xmlns="http://www.w3.org/2000/svg"
 														fill="none"
 														viewBox="0 0 24 24"
@@ -312,11 +313,11 @@ export default function LandingPage() {
 										))}
 									</ul>
 								</div>
-								<div className="px-6 py-8 bg-gray-50">
+								<div className="bg-gray-50 px-6 py-8">
 									<motion.button
 										whileHover={{ scale: 1.05 }}
 										whileTap={{ scale: 0.95 }}
-										className="block w-full bg-indigo-600 text-white text-center px-4 py-2 rounded-md font-medium hover:bg-indigo-700"
+										className="block w-full rounded-md bg-indigo-600 px-4 py-2 text-center font-medium text-white hover:bg-indigo-700"
 									>
 										시작하기
 									</motion.button>
@@ -327,19 +328,19 @@ export default function LandingPage() {
 				</div>
 			</section>
 
-			<section className="py-12 bg-gray-50">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<section className="bg-gray-50 py-12">
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
-						<h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+						<h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
 							후기
 						</h2>
-						<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+						<p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
 							사용자들의 이야기
 						</p>
 					</div>
 
 					<div className="mt-10">
-						<div className="flex flex-wrap -m-4">
+						<div className="-m-4 flex flex-wrap">
 							{[
 								{
 									content:
@@ -362,31 +363,31 @@ export default function LandingPage() {
 										y: isVisible ? 0 : 20,
 									}}
 									transition={{ duration: 0.5, delay: index * 0.1 }}
-									className="p-4 md:w-1/2 w-full"
+									className="w-full p-4 md:w-1/2"
 								>
-									<div className="h-full bg-white p-8 rounded shadow-lg">
+									<div className="h-full rounded bg-white p-8 shadow-lg">
 										<svg
-											className="block w-8 text-gray-400 mb-4"
+											className="mb-4 block w-8 text-gray-400"
 											xmlns="http://www.w3.org/2000/svg"
 											fill="currentColor"
 											viewBox="0 0 975.036 975.036"
 										>
 											<path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
 										</svg>
-										<p className="leading-relaxed mb-6">
+										<p className="mb-6 leading-relaxed">
 											{testimonial.content}
 										</p>
 										<a className="inline-flex items-center">
-											<img
+											<Image
 												alt="testimonial"
 												src={`/placeholder.svg?height=106&width=106&text=${testimonial.name}`}
-												className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
+												className="size-12 shrink-0 rounded-full object-cover object-center"
 											/>
-											<span className="flex-grow flex flex-col pl-4">
-												<span className="title-font font-medium text-gray-900">
+											<span className="flex grow flex-col pl-4">
+												<span className="font-medium text-gray-900">
 													{testimonial.name}
 												</span>
-												<span className="text-gray-500 text-sm">
+												<span className="text-sm text-gray-500">
 													{testimonial.role}
 												</span>
 											</span>

@@ -25,7 +25,7 @@ export default function RootLayout({
 	return (
 		<ReactQueryClientProvider>
 			<html lang="en" className={GeistSans.className} suppressHydrationWarning>
-				<body className="bg-background text-foreground">
+				<body className="flex min-h-screen flex-col bg-background text-foreground">
 					<ThemeProvider
 						attribute="class"
 						defaultTheme="system"
@@ -33,7 +33,7 @@ export default function RootLayout({
 						disableTransitionOnChange
 					>
 						<MainHeader />
-						<div className="max-w-5xl p-5 mx-auto">{children}</div>
+						<div className="mx-auto max-w-6xl grow">{children}</div>
 						<MainFooter />
 					</ThemeProvider>
 				</body>

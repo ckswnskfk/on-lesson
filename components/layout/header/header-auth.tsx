@@ -1,12 +1,11 @@
 import Link from "next/link";
 
 import { signOutAction } from "@/app/actions";
-import { useSupabaseServer } from "@/supabase/server";
-
 import { Button } from "@/components/ui/button";
+import { createSupabaseServer } from "@/supabase/server";
 
 export default async function AuthButton() {
-	const supabase = useSupabaseServer();
+	const supabase = createSupabaseServer();
 
 	const {
 		data: { user },

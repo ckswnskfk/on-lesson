@@ -1,9 +1,8 @@
-import { Input } from "@/components/ui/input";
-
-import { Label } from "@/components/ui/label";
-import { SubmitButton } from "@/components/submit-button";
 import { signUpAction } from "@/app/actions";
 import { FormMessage, Message } from "@/components/form-message";
+import { SubmitButton } from "@/components/submit-button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Role } from "@/lib/definitions";
 
 export default function StudentSignUpForm({
@@ -12,8 +11,8 @@ export default function StudentSignUpForm({
 	searchParams: Message;
 }) {
 	return (
-		<form className="mx-auto flex min-w-64 max-w-64 flex-col">
-			<div className="mt-8 flex flex-col gap-2 [&>input]:mb-3">
+		<form className="mx-auto flex min-w-64 flex-col">
+			<div className="mt-3 flex flex-col gap-2 [&>input]:mb-3">
 				<Input type="hidden" name="role" defaultValue={Role.STUDENT} />
 				<Label htmlFor="email">이메일</Label>
 				<Input

@@ -24,7 +24,7 @@ export default function Signup({ searchParams }: { searchParams: Message }) {
 					로그인
 				</Link>
 			</p>
-			<Tabs defaultValue="student">
+			<Tabs className="mt-8" defaultValue="student">
 				<TabsList className="w-full">
 					<TabsTrigger value="student" className="w-full">
 						학생
