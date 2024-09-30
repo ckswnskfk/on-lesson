@@ -15,3 +15,8 @@ export const SignUpForm = z
 	.refine((data) => data.password === data.confirmPassword, {
 		message: "비밀번호가 일치하지 않습니다.",
 	});
+
+export const SignInForm = z.object({
+	email: z.string().email({ message: "이메일을 형식에 맞게 작성해주세요." }),
+	password: z.string(),
+});

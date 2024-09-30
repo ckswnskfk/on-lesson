@@ -3,10 +3,15 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { SignUpForm } from "@/lib/schemas";
+import { SignInForm, SignUpForm } from "@/lib/schemas";
 import { encodedRedirect } from "@/lib/utils";
 import { createSupabaseServer } from "@/supabase/server";
 
+/**
+ * 회원 가입
+ * @param formData
+ * @returns
+ */
 export const signUpAction = async (formData: FormData) => {
 	const validatedFields = SignUpForm.safeParse({
 		email: formData.get("email")?.toString(),
@@ -69,23 +74,51 @@ export const signUpAction = async (formData: FormData) => {
 	}
 };
 
+/**
+ * 로그인
+ * @param formData
+ * @returns
+ */
 export const signInAction = async (formData: FormData) => {
-	const email = formData.get("email") as string;
-	const password = formData.get("password") as string;
+	const {
+		data: fields,
+		error: fieldsError,
+		success,
+	} = SignInForm.safeParse({
+		email: formData.get("email"),
+		password: formData.get("password"),
+	});
+
+	if (!success) {
+		return encodedRedirect(
+			"error",
+			"/sign-in",
+			fieldsError.errors.flatMap((error) => error.message).join("\n"),
+		);
+	}
+
+	const { email, password } = fields;
 	const supabase = createSupabaseServer();
 
-	const { error } = await supabase.auth.signInWithPassword({
+	const { error, data } = await supabase.auth.signInWithPassword({
 		email,
 		password,
 	});
+
+	console.log("user data", data);
 
 	if (error) {
 		return encodedRedirect("error", "/sign-in", error.message);
 	}
 
-	return redirect("/protected");
+	return redirect("/dashboard");
 };
 
+/**
+ * 비밀번호 재설정(이메일 전송)
+ * @param formData
+ * @returns
+ */
 export const forgotPasswordAction = async (formData: FormData) => {
 	const email = formData.get("email")?.toString();
 	const supabase = createSupabaseServer();
@@ -120,6 +153,10 @@ export const forgotPasswordAction = async (formData: FormData) => {
 	);
 };
 
+/**
+ * 비밀번호 재설정(db update)
+ * @param formData
+ */
 export const resetPasswordAction = async (formData: FormData) => {
 	const supabase = createSupabaseServer();
 
@@ -153,6 +190,10 @@ export const resetPasswordAction = async (formData: FormData) => {
 	encodedRedirect("success", "/protected/reset-password", "Password updated");
 };
 
+/**
+ * 로그아웃
+ * @returns
+ */
 export const signOutAction = async () => {
 	const supabase = createSupabaseServer();
 	await supabase.auth.signOut();
