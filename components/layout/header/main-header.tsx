@@ -9,10 +9,10 @@ import HeaderNav from "./nav-bar";
 export default function MainHeader() {
 	return (
 		<header>
-			<nav className="flex h-16 w-full justify-center border-b border-b-foreground/10">
-				<div className="flex w-full max-w-5xl items-center justify-between p-3 px-5 text-sm">
-					<div className="flex items-center gap-5 font-semibold">
-						<Link href={"/"} className="text-lg text-blue-500">
+			<nav className="flex h-16 justify-center border-b border-b-foreground/10">
+				<div className="flex w-full max-w-[115.2rem] items-center justify-between p-4 px-16 text-sm">
+					<div className="flex items-center font-semibold">
+						<Link href={"/"} className="text-4xl text-blue-500">
 							On-Lesson
 						</Link>
 					</div>
