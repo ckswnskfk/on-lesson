@@ -3,5 +3,5 @@ export default async function Layout({
 }: {
 	children: React.ReactNode;
 }) {
-	return <main className="mx-auto mt-32 w-[35rem]">{children}</main>;
+	return <main className="mx-auto my-32 w-[35rem]">{children}</main>;
 }

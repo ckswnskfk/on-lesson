@@ -16,7 +16,7 @@ export default function KakaoButton() {
 	return (
 		<Button
 			variant={"link"}
-			className="bg-[#FEE501]"
+			className="size-20 rounded-full bg-[#FEE501]"
 			onClick={handleSignInWithKakao}
 			type="button"
 		>

@@ -17,19 +17,19 @@ export default function Signup({ searchParams }: { searchParams: Message }) {
 
 	return (
 		<>
-			<h1 className="text-2xl font-medium">회원 가입</h1>
-			<p className="text-sm text-foreground">
+			<h1 className="text-5xl font-medium">회원 가입</h1>
+			<p className="mt-[.5rem] text-2xl text-foreground">
 				이미 회원이십니까?{" "}
 				<Link className="font-medium text-primary underline" href="/sign-in">
 					로그인
 				</Link>
 			</p>
 			<Tabs className="mt-8" defaultValue="student">
-				<TabsList className="w-full">
-					<TabsTrigger value="student" className="w-full">
+				<TabsList className="h-12 w-full">
+					<TabsTrigger value="student" className="w-full text-2xl">
 						학생
 					</TabsTrigger>
-					<TabsTrigger value="teacher" className="w-full">
+					<TabsTrigger value="teacher" className="w-full text-2xl">
 						선생님
 					</TabsTrigger>
 				</TabsList>

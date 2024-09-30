@@ -14,7 +14,7 @@ export default async function AuthButton() {
 
 	return user ? (
 		<div className="flex items-center gap-4">
-			<Avatar className="size-12">
+			<Avatar className="size-16">
 				<AvatarImage
 					src=""
 					alt={`${user.user_metadata?.user_name}의 아바타 이미지`}
@@ -31,10 +31,10 @@ export default async function AuthButton() {
 		</div>
 	) : (
 		<div className="flex gap-2">
-			<Button asChild size="sm" variant={"outline"} className="text-[1.2rem]">
+			<Button asChild size="lg" variant={"outline"} className="text-[1.4rem]">
 				<Link href="/sign-in">로그인</Link>
 			</Button>
-			<Button asChild size="sm" variant={"default"} className="text-[1.2rem]">
+			<Button asChild size="lg" variant={"default"} className="text-[1.4rem]">
 				<Link href="/sign-up">회원가입</Link>
 			</Button>
 		</div>

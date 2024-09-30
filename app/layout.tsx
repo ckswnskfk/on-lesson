@@ -33,7 +33,7 @@ export default function RootLayout({
 						disableTransitionOnChange
 					>
 						<MainHeader />
-						<div className="mx-auto max-w-6xl grow">{children}</div>
+						<div className="grow">{children}</div>
 						<MainFooter />
 					</ThemeProvider>
 				</body>
